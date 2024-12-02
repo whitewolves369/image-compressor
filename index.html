@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片压缩工具</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <!-- 顶部标题区域 -->
+    <header class="header">
+        <h1>图片压缩工具</h1>
+        <p class="subtitle">支持 PNG、JPG 格式的图片压缩</p>
+    </header>
+
+    <!-- 主要内容区域 -->
+    <main class="main-container">
+        <!-- 图片上传区域 -->
+        <section class="upload-section" id="uploadSection">
+            <div class="upload-area" id="dropZone">
+                <input type="file" id="fileInput" accept="image/png,image/jpeg" multiple hidden>
+                <div class="upload-prompt">
+                    <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24'%3E%3Cpath fill='%23666' d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z'/%3E%3C/svg%3E" alt="上传图标">
+                    <p>拖放图片到此处或点击上传</p>
+                    <p class="upload-tip">支持批量上传 PNG、JPG 格式</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 图片预览和压缩区域 -->
+        <section class="preview-section">
+            <div id="imageList"></div>
+        </section>
+
+        <!-- 控制面板 -->
+        <section class="control-panel">
+            <div class="quality-control">
+                <label for="qualitySlider">压缩质量：<span id="qualityValue">80</span>%</label>
+                <input type="range" id="qualitySlider" min="1" max="100" value="80">
+            </div>
+            <div class="buttons">
+                <button id="compressBtn" class="btn primary" disabled>压缩所有图片</button>
+                <button id="downloadBtn" class="btn secondary" disabled>下载所有图片</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- 加载状态提示 -->
+    <div class="loading-overlay" id="loadingOverlay" hidden>
+        <div class="loading-spinner"></div>
+        <p>正在处理图片...</p>
+    </div>
+
+    <script src="scripts/imageCompressor.js"></script>
+</body>
+</html>
